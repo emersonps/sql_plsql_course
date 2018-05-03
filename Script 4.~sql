@@ -1,0 +1,46 @@
+SELECT ' O(A) Cliente ' || INITCAP (nome) || ' mora em ' || UPPER (cidade) || ' - ' || LOWER(estado) AS "Informações" FROM taluno;
+
+SELECT * FROM TALUNO;
+
+SELECT Concat(COD_ALUNO, NOME) FROM TALUNO;
+SELECT COD_ALUNO || ' - ' || NOME FROM TALUNO;
+
+SELECT InitCap(NOME) FROM TALUNO;
+SELECT InStr(NOME, 'R') FROM TALUNO;
+
+SELECT nome, Length(NOME) FROM TALUNO;
+SELECT nome, Lower(NOME) FROM TALUNO;
+
+SELECT nome, Upper(NOME) FROM TALUNO;
+
+-- L = left - esquerda
+SELECT nome, LPad(COD_ALUNO, 5, '0') FROM TALUNO;
+
+-- R = direita - esquerda - GERALMENTE USADO PARA TEXTOS.
+SELECT nome, RPad(COD_ALUNO, 5, '0') FROM TALUNO;
+
+SELECT nome, LPad(COD_ALUNO, 5, ' R$') FROM TALUNO;
+
+--copia parte de um texto
+SELECT SubStr(NOME, 3,1) FROM TALUNO;
+
+SELECT NOME, SubStr(NOME, 1,3) FROM TALUNO;
+
+SELECT REPLACE(NOME, 'E', '3') FROM TALUNO;
+
+SELECT NOME, SubStr(NOME, Length(nome)-1, 2) FROM TALUNO;
+
+SELECT nome, salario, RPad(SALARIO, 8,'0') FROM TALUNO;
+
+SELECT nome, RPad(NOME,10,'$') FROM TALUNO;
+
+SELECT nome, SubStr(NOME, 1,3) FROM TALUNO;
+
+SELECT SubStr(NOME, Length(nome)-1, 2) FROM TALUNO;
+
+SELECT NOME, SubStr(NOME,6,1) FROM TALUNO;
+
+
+
+
+
