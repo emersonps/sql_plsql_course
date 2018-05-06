@@ -1,46 +1,26 @@
-SELECT ' O(A) Cliente ' || INITCAP (nome) || ' mora em ' || UPPER (cidade) || ' - ' || LOWER(estado) AS "Informações" FROM taluno;
+--DUAL é uma tabela vazia - Data
+SELECT * FROM DUAL;
 
-SELECT * FROM TALUNO;
+SELECT SYSDATE FROM DUAL;
 
-SELECT Concat(COD_ALUNO, NOME) FROM TALUNO;
-SELECT COD_ALUNO || ' - ' || NOME FROM TALUNO;
+SELECT Round(45.925,2), --45,93
+       Trunc(45.929,2), --45.92
+       Mod(10, 2) AS RESTO_DIVISÃO,
+       Trunc(1.99),
+       Trunc(1.99, 2)
+FROM DUAL;
 
-SELECT InitCap(NOME) FROM TALUNO;
-SELECT InStr(NOME, 'R') FROM TALUNO;
+--Funções de Data/Hora
+SELECT DATA, SYSDATE, DATA + 5 FROM TCONTRATO;
+SELECT SYSDATE - DATA AS DIF_DIAS FROM TCONTRATO;
+SELECT Trunc(SYSDATE - DATA) AS DIAS FROM TCONTRATO;
 
-SELECT nome, Length(NOME) FROM TALUNO;
-SELECT nome, Lower(NOME) FROM TALUNO;
+--Somando horas em uma tabela
+SELECT SYSDATE, SYSDATE + 2 / 24 AS ADD_HORAS FROM TCONTRATO;
 
-SELECT nome, Upper(NOME) FROM TALUNO;
+--Somar minutos (1440 minutos tem 1 dia)
+SELECT SYSDATE, SYSDATE + 15 / 1440 AS ADD_MINUTOS FROM TCONTRATO;
 
--- L = left - esquerda
-SELECT nome, LPad(COD_ALUNO, 5, '0') FROM TALUNO;
-
--- R = direita - esquerda - GERALMENTE USADO PARA TEXTOS.
-SELECT nome, RPad(COD_ALUNO, 5, '0') FROM TALUNO;
-
-SELECT nome, LPad(COD_ALUNO, 5, ' R$') FROM TALUNO;
-
---copia parte de um texto
-SELECT SubStr(NOME, 3,1) FROM TALUNO;
-
-SELECT NOME, SubStr(NOME, 1,3) FROM TALUNO;
-
-SELECT REPLACE(NOME, 'E', '3') FROM TALUNO;
-
-SELECT NOME, SubStr(NOME, Length(nome)-1, 2) FROM TALUNO;
-
-SELECT nome, salario, RPad(SALARIO, 8,'0') FROM TALUNO;
-
-SELECT nome, RPad(NOME,10,'$') FROM TALUNO;
-
-SELECT nome, SubStr(NOME, 1,3) FROM TALUNO;
-
-SELECT SubStr(NOME, Length(nome)-1, 2) FROM TALUNO;
-
-SELECT NOME, SubStr(NOME,6,1) FROM TALUNO;
-
-
-
-
+--Somar segundo (3600 segundos tem um dia)
+SELECT SYSDATE, SYSDATE + 30 / (3600 * 24) AS ADD_SEGUNDOS FROM TCONTRATO;
 
