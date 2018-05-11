@@ -44,11 +44,41 @@ SELECT Last_Day(SYSDATE) AS ULTIMO_DIA_MES FROM DUAL;
 --A partir do dia 16 do mês atual retorna o primeiro dia do próximo mês
 SELECT Round(SYSDATE, 'MONTH') AS PRIMEIRO_DIA_PROXIMO_MES FROM DUAL;
 
---Trunc sempre mostra o primeiro doa do mes corrente
+--Trunc sempre mostra o primeiro do do mes corrente
 SELECT Trunc(SYSDATE, 'MONTH') AS PRIMEIR_DIA_MES_CORRENTE FROM DUAL;
 
 
 
 
 
+--DD -> dia do mês
+SELECT SYSDATE, To_Char(SYSDATE, 'DD') FROM DUAL;
 
+-- Mostra somente a data com 2 ou 4 digitos do ano
+SELECT To_Char(SYSDATE, 'DD/MM/YY') FROM DUAL;
+SELECT To_Char(SYSDATE, 'DD/MM/YYYY') FROM DUAL;
+
+--Mostra o Dia e o Mês
+SELECT To_Char(SYSDATE, 'DD/MM') FROM DUAL;
+
+--Mostra somento o dia, o mês ou o ano
+SELECT To_Char(SYSDATE, 'DD') FROM DUAL;
+SELECT To_Char(SYSDATE, 'MM') FROM DUAL;
+SELECT To_Char(SYSDATE, 'YYYY') FROM DUAL;
+
+--Mostra o mês corrente
+SELECT To_Char(SYSDATE,'MONTH') MES1 FROM DUAL;
+
+--Dia da semana
+SELECT To_Char(SYSDATE,'D') DIA_SEMANA FROM DUAL;
+
+--Dia da semana - nome
+SELECT To_Char(SYSDATE,'DY') DIA_NOME FROM DUAL;
+
+--Mostra o nome do Ano
+SELECT To_Char(SYSDATE,'YEAR') ANO_NOME FROM DUAL;
+
+--Data por extenso
+SELECT To_Char(SYSDATE,' "NOVO HAMBURGO," DAY "," DD "de" fmMonth "de" YYYY') FROM DUAL;
+
+--EXEMPLOS COM HORA

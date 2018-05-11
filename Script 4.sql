@@ -81,4 +81,52 @@ SELECT To_Char(SYSDATE,'YEAR') ANO_NOME FROM DUAL;
 --Data por extenso
 SELECT To_Char(SYSDATE,' "NOVO HAMBURGO," DAY "," DD "de" fmMonth "de" YYYY') FROM DUAL;
 
+
+
 --EXEMPLOS COM HORA
+
+--Hora e Minuto
+SELECT To_Char(SYSDATE, 'HH24:MI') HORA_MIN FROM DUAL;
+
+--Hora Completa
+SELECT To_Char(SYSDATE, 'HH24:MI:SS') HORA_MIN FROM DUAL;
+
+--Dia, Mês, Hora e minutos
+SELECT To_Char(SYSDATE, 'DD/MM HH24:MI') DATA_HORA FROM DUAL;
+
+--Dia, Mês, Hora, minutos e segundos
+SELECT To_Char(SYSDATE, 'DD/MM HH24:MI:SS') DATA_HORA FROM DUAL;
+
+--Dia, Mês, Ano, Hora, minutos e segundos
+SELECT To_Char(SYSDATE, 'DD/MM/YYYY HH24:MI:SS') DATA_HORA FROM DUAL;
+
+
+--OUTROS EXEMPLOS DE TO_CHAR
+
+--L -> R$
+--G -> ponto
+--D -> casas decimais
+SELECT * FROM TALUNO;
+
+SELECT To_Char(Salario, 'L9999.99') salario, To_Char(Salario, 'L99G999D99') salario2 FROM TALUNO;
+
+
+SELECT 'R$    ' || (Round(Salario,2)) AS salario FROM TALUNO;
+
+--Trim - Tira os espaços em branco
+SELECT Trim(To_Char(Salario, 'L9999.99')) salario , To_Char(Salario, 'L99G999D99') salario2 FROM TALUNO;
+
+--NVL e NVL2 (Quando queremos retornar Null como 0.
+--NVL2 é como if,else - Se for Null retorna -1, se não retorna TOTAL
+--NVL2 Geralmente usa-se quando é utilizado duas colunas, do contrario, caso queira o resultado na mesma coluna, usa o NVL.
+
+SELECT * FROM TCONTRATO;
+
+SELECT Total,
+  Desconto,
+  Desconto+Total,
+  Nvl(Desconto,0) desconto1,
+  Nvl(Desconto,0) + TOTAL,
+  Nvl2(DESCONTO, TOTAL, -1)
+FROM TContrato;
+
