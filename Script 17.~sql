@@ -1,1 +1,18 @@
 --CAPÍTULO 18 - ESCREVENDO CURSORES EXPLICITOS
+DECLARE
+	vcod_aluno TAluno.cod_aluno%TYPE;  --Inteiro(seleciona a tabela+f12
+	vNome		TAluno.nome%TYPE; --Varchar(30)
+	CURSOR	c1 IS
+	  SELECT 	cod_aluno, nome  --Meu cursor é um select que pega todos os alunos e seus codigos na tabela taluno
+	  FROM		taluno;
+BEGIN
+	OPEN    c1; --Executa como o select criado.
+	LOOP --Para percorrer registro por registro.
+		FETCH c1 INTO vcod_aluno, vNome;  --Vamos pegar cada registro e jogar nas variáveis a cada loop.
+		EXIT WHEN c1%ROWCOUNT >= 10 OR c1%NOTFOUND;  --O laço vai parar quando chegar nessa condição (quando a quantidade for maior ou igual a 10 ou quando não encontrar mais registros no cursor.
+    Dbms_Output.Put_Line('Codigo: '|| LPad(vcod_aluno,4,'0') || ' - '||'Nome: '||vNome);
+  END LOOP;
+  CLOSE c1;
+END;
+
+
